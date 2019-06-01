@@ -5,6 +5,11 @@ class MyCollectionTest<E> {
 
         MyCollection<String> collection = new MyCollection<>();
         collection.add("aaa");
+        collection.remove(2);
+        collection.remove("bbb");
+        collection.add(3, "ccc");
+        collection.contains("eee");
+        collection.get(5);
         collection.toString();
     }
 }

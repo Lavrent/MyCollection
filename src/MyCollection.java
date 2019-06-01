@@ -10,11 +10,6 @@ public class MyCollection<E> implements Iterable<E> {
     private List<E> linkedList = new LinkedList<>();
     private List<E> arrayList = new ArrayList<>();
 
-    @Override
-    public Iterator<E> iterator() {
-        return linkedList.iterator();
-    }
-
     public void add(E value) {
         arrayList.add(value);
     }
@@ -39,8 +34,16 @@ public class MyCollection<E> implements Iterable<E> {
         hashSet.remove(value);
     }
 
+
+    @Override
+    public Iterator<E> iterator() {
+        return linkedList.iterator();
+    }
+
     @Override
     public String toString() {
         return (String) this.iterator().next();
     }
+
+
 }
