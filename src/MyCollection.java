@@ -1,22 +1,18 @@
 import java.util.*;
+import java.util.function.Consumer;
 import java.util.function.IntFunction;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 public class MyCollection<E> implements Iterable<E> {
 
-    Set<E> hashSet = new HashSet<>();
-    List<E> linkedList = new LinkedList<>();
-    List<E> arrayList = new ArrayList<>();
-
-
-    public E get(int index) {
-        return arrayList.get(index);
-    }
+    private Set<E> hashSet = new HashSet<>();
+    private List<E> linkedList = new LinkedList<>();
+    private List<E> arrayList = new ArrayList<>();
 
     @Override
     public Iterator<E> iterator() {
-        return null;
+        return linkedList.iterator();
     }
 
     public void add(E value) {
@@ -27,9 +23,24 @@ public class MyCollection<E> implements Iterable<E> {
         arrayList.add(index, value);
     }
 
-    public void contains() {
-
+    public E get(int index) {
+        return arrayList.get(index);
     }
 
+    public void contains(E value) {
+        linkedList.contains(value);
+    }
 
+    public void remove(int index) {
+        arrayList.remove(index);
+    }
+
+    public void remove(E value) {
+        hashSet.remove(value);
+    }
+
+    @Override
+    public String toString() {
+        return (String) this.iterator().next();
+    }
 }
